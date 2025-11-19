@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>妙麗歲數計算機</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="./icon.png" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon.png" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>妙麗歲數計算機</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <div class="container">
+      <img
+        class="avatar"
+        src="https://hackmd.io/_uploads/r10xgVflZe.png"
+        alt="妙麗頭像"
+      />
 
-<body>
-  <div class="container">
-    <img class="avatar" src="https://hackmd.io/_uploads/r10xgVflZe.png" alt="妙麗頭像" />
+      <h1>🐶 妙麗歲數計算機</h1>
 
-    <h1>🐶 妙麗歲數計算機</h1>
+      <label for="birthday">妙麗的生日：</label>
+      <input type="date" id="birthday" />
 
-    <label for="birthday">妙麗的生日：</label>
-    <input type="date" id="birthday" />
+      <button id="calcBtn">開始計算</button>
 
-    <button id="calcBtn">開始計算</button>
+      <div class="info-box">💡 輸入日期後按下按鈕即可計算。</div>
 
-    <div class="info-box">
-      💡 輸入日期後按下按鈕即可計算。
+      <!-- ⭐ 新增提示文字 -->
+      <div class="tip-box">
+        ℹ️ 輸入日期後按下按鈕，再重新整理頁面，生日欄位會自動帶您上次輸入的日期
+      </div>
+
+      <!-- ⭐ 結果區塊：固定顯示但初始內容為空 -->
+      <div id="result" class="result-box"></div>
     </div>
 
-    <!-- ⭐ 新增提示文字 -->
-    <div class="tip-box">
-      ℹ️ 輸入日期後按下按鈕，再重新整理頁面，生日欄位會自動帶您上次輸入的日期
-    </div>
-
-    <!-- ⭐ 結果區塊：固定顯示但初始內容為空 -->
-    <div id="result" class="result-box"></div>
-  </div>
-
-  <script src="app.js"></script>
-</body>
-
+    <script src="app.js"></script>
+  </body>
 </html>
