@@ -1,6 +1,22 @@
 const resultBox = document.getElementById("result");
 const birthdayInput = document.getElementById("birthday");
 
+// ⭐ 頁面載入時，從 localStorage 讀取上次輸入的生日和結果
+window.addEventListener("DOMContentLoaded", function () {
+  const savedBirthday = localStorage.getItem("dogBirthday");
+  const savedResult = localStorage.getItem("dogResult");
+
+  // 如果有儲存的生日，自動填入
+  if (savedBirthday) {
+    birthdayInput.value = savedBirthday;
+  }
+
+  // 如果有儲存的結果，自動顯示
+  if (savedResult) {
+    resultBox.innerHTML = savedResult;
+  }
+});
+
 document.getElementById("calcBtn").addEventListener("click", function () {
   const birthday = birthdayInput.value;
 
@@ -16,6 +32,9 @@ document.getElementById("calcBtn").addEventListener("click", function () {
   if (birthDate > today) {
     alert("生日不能是未來的日期！請重新輸入。");
     birthdayInput.value = "";
+    // ⭐ 清除 localStorage
+    localStorage.removeItem("dogBirthday");
+    localStorage.removeItem("dogResult");
     return;
   }
 
@@ -38,10 +57,14 @@ document.getElementById("calcBtn").addEventListener("click", function () {
   const humanAgeRounded = humanAge.toFixed(1);
 
   // 顯示結果
-  resultBox.innerHTML = `
+  const resultHTML = `
     妙麗現在大約 <strong>${dogAgeRounded}</strong> 歲狗齡，
     換算成人類年齡大約是 <strong>${humanAgeRounded}</strong> 歲。
   `;
+  
+  resultBox.innerHTML = resultHTML;
 
-  resultBox.classList.add("show");
+  // ⭐ 儲存生日和結果到 localStorage
+  localStorage.setItem("dogBirthday", birthday);
+  localStorage.setItem("dogResult", resultHTML);
 });

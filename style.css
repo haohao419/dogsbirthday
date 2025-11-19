@@ -22,6 +22,7 @@ body {
   border-radius: 22px;
   padding: 32px 26px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  /* ⭐ 移除高度限制，讓容器固定大小 */
 }
 
 /* ---- 狗狗頭貼 ---- */
@@ -93,25 +94,37 @@ button:hover {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
+/* ---- ⭐ 新增提示文字樣式 ---- */
+.tip-box {
+  margin-top: 15px;
+  padding: 14px 16px;
+  background: #fff9e6;
+  border-radius: 12px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
 /* ---- 結果框 ---- */
 .result-box {
   margin-top: 25px;
   padding: 20px 18px;
-  min-height: 80px; /* ⭐ 保留空間，但預設不顯示內容 */
+  min-height: 80px; /* ⭐ 固定最小高度，保持背景固定大小 */
   background: #ffe9d6;
   border-radius: 16px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   font-size: 16px;
   line-height: 1.6;
   color: #444;
-  display: none; /* ⭐ 預設不顯示 */
-  opacity: 0;
+  /* ⭐ 移除 display: none，讓框框固定顯示 */
+  opacity: 1;
   transition: opacity 0.35s ease;
 }
 
-.result-box.show {
-  display: block;
-  opacity: 1; /* ⭐ 按下按鈕後 fade-in 顯示 */
+/* ⭐ 當結果為空時，保持透明度較低 */
+.result-box:empty {
+  opacity: 0.3;
 }
 
 .result-box strong {
